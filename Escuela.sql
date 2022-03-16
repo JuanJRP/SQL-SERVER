@@ -31,3 +31,19 @@ SELECT StdFirstName, StdCity, AVG(StdGPA) AS PROMCURS
 FROM Student WHERE StdGPA >= 3.7
 GROUP BY StdFirstName, StdCity
 ORDER BY PROMCURS DESC
+
+Select FacFirstName, FacLastName
+from Faculty, student
+where Faculty.FacCity != student.StdCity
+and faculty.FacState = Student.StdState 
+
+Select FacFirstName, FacLastName
+from Faculty, student
+where Faculty.FacCity = 'SEATTLE' 
+and student.StdCity = 'SEATTLE'
+
+select StdFirstName, StdLastName, StdGPA, offterm
+from student, offering
+where StdGPA < 3.0 and OffTerm = 'SUMMER'
+group by StdFirstName, StdLastName, StdGPA, OffTerm
+
