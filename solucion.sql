@@ -2,7 +2,7 @@
 de 2007, levantadas por clientes de Colorado  (CustState) pero enviadas a residentes de Washington (OrdState).*/
 
 SELECT OrderTbl.OrdNo, OrderTbl.OrdDate, Customer.CustNo, Customer.CustFirstName, Customer.CustLastName FROM Customer, OrderTbl
-WHERE DATEPART(MM,OrderTbl.OrdDate) = 01 AND DATEPART(YEAR,OrderTbl.OrdDate) = 2007 
+WHERE OrderTbl.CustNo = Customer.CustNo AND DATEPART(MM,OrderTbl.OrdDate) = 01 AND DATEPART(YEAR,OrderTbl.OrdDate) = 2007 
 AND Customer.CustState = 'CO' AND OrderTbl.OrdState = 'WA' 
 
 /* 13) Liste el número, nombre y apellido del cliente y saldo de los clientes de Washington que hayan colocado una o más 
